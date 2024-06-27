@@ -1,0 +1,6 @@
+@inv.purchase_HostAddress = http://localhost:5276
+
+GET {{inv.purchase_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

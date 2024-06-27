@@ -1,0 +1,6 @@
+@inv.core_HostAddress = http://localhost:5185
+
+GET {{inv.core_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
