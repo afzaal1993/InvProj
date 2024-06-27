@@ -1,4 +1,6 @@
 using Inv.Core.Data;
+using Inv.Core.Interfaces;
+using Inv.Core.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,8 +13,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<CoreDbConext>
-    (db => db.UseSqlite(builder.Configuration.GetConnectionString("Default"))
-                        , ServiceLifetime.Singleton);
+    (db => db.UseSqlite(builder.Configuration.GetConnectionString("Default")),
+    ServiceLifetime.Singleton);
+
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 var app = builder.Build();
 
